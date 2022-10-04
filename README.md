@@ -356,28 +356,38 @@ Now that coordinates are loaded, choose optimal spacing of measurement locations
     dimensional space via kernel trick. This code is focused on single and
     multiple kernel approaches. Technique provides strong results in
     improving regression results -- here for localization estimation. 
-    - include(scriptsdir("LinearRegModule.jl")) <-- enter in "ParamsFile_2021asilomarSK.jl" 
-    - include(scriptsdir("LinearRegModule.jl")) <-- enter in "ParamsFile_2021asilomarMK.jl"
+    ```
+    include(scriptsdir("LinearRegModule.jl"))          # enter in "ParamsFile_2021asilomarSK.jl" 
+    include(scriptsdir("LinearRegModule.jl"))          # enter in "ParamsFile_2021asilomarMK.jl"
+    ```
   - Run code for 2022 Asilomar testing and results [^5]. This code is a
     departure form utilizing pseudonorm directly to address outliers.  Rather,
     the outliers are removed then standard localization algorithms are
     utilized.
-    - include(scriptsdir("DenoiseModule.jl")) <-- enter in "ParamsFile_2022asilomarDenoise.jl"
-    - include(scriptsdir("LinearRegModule.jl")) <-- enter in "ParamsFile_2022asilomar.jl"
-    - include(scriptsdir("PaperFigureScript2022asilomar.jl"))  <-- generate figures and table
+    ```
+    include(scriptsdir("DenoiseModule.jl"))            # enter in "ParamsFile_2022asilomarDenoise.jl"
+    include(scriptsdir("LinearRegModule.jl"))          # enter in "ParamsFile_2022asilomar.jl"
+    include(scriptsdir("PaperFigureScript2022asilomar.jl"))  # generate figures and tables
+    ```
   - Run code for 2022 TBD journal (this is still in progress). This code is
     focused on the relationship between the choice of pseudonorms and the distribution of
     features (L2 -- Gaussian, L1 -- Laplacian, etc.).
-    - include(scriptsdir("LinearRegModule.jl")) <-- enter in "ParamsFile_2022tbdJournal.jl"
-    - include(scriptsdir("LinearRegModule.jl")) <-- enter in "ParamsFile_2022tbdJournal_TUDdata.jl"
-      - Due to size of TUD dataset, processing time was around two weeks on Intel® Core™ i7-9750H CPU @ 2.60GHz × 12 
-    - include(scriptsdir("LinearRegModuleLoop.jl")) <-- enter in "ParamsFile_2022tbdJournalSims.jl"
-      - If you get 'scipy' not recognized, then do the following:
+    ```
+    include(scriptsdir("LinearRegModule.jl"))          # enter in "ParamsFile_2022tbdJournal.jl"
+    include(scriptsdir("LinearRegModule.jl"))          # enter in "ParamsFile_2022tbdJournal_TUDdata.jl"
+    ```
+    - Due to size of TUD dataset, processing time was around two weeks on Intel® Core™ i7-9750H CPU @ 2.60GHz × 12 
+    ```
+    include(scriptsdir("LinearRegModuleLoop.jl"))      # enter in "ParamsFile_2022tbdJournalSims.jl"
+    ```
+    - If you get 'scipy' not recognized, then do the following:
       ```
       julia> using Conda
       julia> Conda.add("scipy")
       ```
-    - include(scriptsdir("PaperFiguresScriptTBDpaper.jl"))
+    ```
+    include(scriptsdir("PaperFiguresScriptTBDpaper.jl"))    # generate figures and tables
+    ```
 
 
 # Errata

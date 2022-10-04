@@ -298,6 +298,31 @@ end
     filtcolsRegex::Vector{String}=["\n"]
 end
 
+"""
+    ReadJHUcsvFiles(filename::String; 
+                    avgmeas::Bool=true, 
+                    flag100::Bool=true, 
+                    flagval::Float64=-999.0, 
+                    verbose::Bool=false, 
+                    datarep::Union{DataType,Nothing}=nothing,
+                    typesRegex::String="tdoa|rss|aoa",
+                    filtcolsRegex::Vector{String}=["\n"])
+    
+    Reads in JHU CSV file that is available at Zenodo.org under ID 6795580. 
+    Output are training and testing dataframes. Measurements can be averaged ("avgmeas") in
+    the training data -- there are often multiple measurements at given locations. Use flag100
+    if wish to change minimum value to flagval. Note that setting flagval=-999.0 will 
+    result in (min value in data -1) to replace "100" rather than passed value. 
+    To transform the data, change 'datarep' to something like DTpowed, DTexponential, or DTpositive.
+
+    To select passed features (train_data, test_data), set Regex variable to select appropriate
+    columns -- passing filter. To subsequently remove any columns, use filtcoslRegex -- blocking 
+    filter.
+
+    Outputs tuple of dataframes: (train_data, train_locations, test_data, test_locations)
+
+    Use Params keyword struct ReadZenodoMATParams to set and pass default values
+"""
 function ReadJHUcsvFiles(filename::String; 
     avgmeas::Bool=true, 
     flag100::Bool=true, 
